@@ -4,6 +4,10 @@
 
 function objectValues(object) {
     // code
+    var output = [];
+    for (let keys in object) {
+        output.push(object[keys]);
+    } return output;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +15,10 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+   var output = [] 
+ for (let keys in object) {
+    output.push(keys);
+ } return output.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +26,12 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+   var output = [];
+   for (let keys in object) {
+    if (typeof object[keys] === "string") {
+        output.push(object[keys]);
+    }
+   } return output.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +39,12 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)) {
+        return "array";
+    }
+    if (typeof collection === "object") {
+        return "object";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
