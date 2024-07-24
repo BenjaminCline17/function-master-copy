@@ -52,7 +52,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+  return string.charAt(0).toUpperCase() + string.slice(1); 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -60,7 +60,11 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+   string.split(" ");
+   var output = [];
+   for (let i = 0; i < string.length; i++) {
+    string[i][0].toUpperCase() + string[i].slice(1);
+   } return string.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
