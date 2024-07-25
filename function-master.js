@@ -4,10 +4,12 @@
 
 function objectValues(object) {
     // code
+    //declare output array
     var output = [];
+    //for every key in object, push object[keys] into output array
     for (let keys in object) {
         output.push(object[keys]);
-    } return output;
+    } return output; //return output
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -15,10 +17,12 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
+    //declare output array
    var output = [] 
+   //for every keys in object, push keys into output array
  for (let keys in object) {
     output.push(keys);
- } return output.join(" ");
+ } return output.join(" "); //return output.join to join the array into a string
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -26,11 +30,14 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    //declare output array
    var output = [];
+   //for every keys in object, push object[keys] into output if typeof object[keys] equals "string"
    for (let keys in object) {
     if (typeof object[keys] === "string") {
         output.push(object[keys]);
     }
+    //return output.join to join the array into a string
    } return output.join(" ");
 }
 
@@ -39,9 +46,11 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    //if Array.isArray(collection), return "array"
     if (Array.isArray(collection)) {
         return "array";
     }
+    //if typeof collection equals "object", return "object"
     if (typeof collection === "object") {
         return "object";
     }
@@ -52,6 +61,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
+    //return string.charAt(0).toUpperCase() + string.slice(1) to capitalize the first letter and concat it together  
   return string.charAt(0).toUpperCase() + string.slice(1); 
 }
 
@@ -60,11 +70,14 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-   string.split(" ");
-   var output = [];
-   for (let i = 0; i < string.length; i++) {
-    string[i][0].toUpperCase() + string[i].slice(1);
-   } return string.join(" ");
+    //const words equals string.split(" ")
+  const words = string.split(" ");
+  //for loop to iterate through words array
+   for (let i = 0; i < words.length; i++) {
+    //words[i] equals words[i][0].toUpperCase() + words[i].slice(1) in order to separate the first letter and capatilize it and then return it back to the rest of the string
+    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+    //return words.join in order to join the array into a string
+   } return words.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -72,7 +85,10 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    //declare name variable that equals object.name[0].toUpperCase() + object.name.slice(1);
+    var name = object.name[0].toUpperCase() + object.name.slice(1);
+ //return "Welcome " + name + "!"
+ return "Welcome " + name + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -80,7 +96,12 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+//declare name variable that capitalizes the first letter of the object.name string
+var name = object.name[0].toUpperCase() + object.name.slice(1);
+//declare species variable that capitalizes the first letter of the object.species string
+var species = object.species[0].toUpperCase() + object.species.slice(1);
+//return name + " is a " + species
+return  name + " is a " + species;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -88,7 +109,15 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    console.log(Object.keys(object).length);
+//if object.noises is an array and object.noises.length is greater than 0, return object.noises.join(" ")
+if (Array.isArray(object.noises) && object.noises.length > 0) {
+    return object.noises.join(" ");
+    //else return "there are no noises"
+} else {
+    return "there are no noises";
+}
+    
 }
 
 //////////////////////////////////////////////////////////////////////
