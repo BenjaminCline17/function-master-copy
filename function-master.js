@@ -109,7 +109,7 @@ return  name + " is a " + species;
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    console.log(Object.keys(object).length);
+
 //if object.noises is an array and object.noises.length is greater than 0, return object.noises.join(" ")
 if (Array.isArray(object.noises) && object.noises.length > 0) {
     return object.noises.join(" ");
@@ -125,7 +125,13 @@ if (Array.isArray(object.noises) && object.noises.length > 0) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    //if string includes word, return word
+if (string.includes(word)) {
+    return true;
+    //else return false
+} else {
+    return false;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -133,7 +139,10 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    //push name into object.friends array
+ object.friends.push(name);
+ //return object
+ return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -141,7 +150,13 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    //if object has property "friends" and includes name return true
+if (object.hasOwnProperty("friends") && object.friends.includes(name)) {
+    return true;
+    //else return false
+} else {
+    return false;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -149,8 +164,32 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    //declare output as an empty array
+ var output = [];
+ //for loop to iterate through array
+for (let i = 0; i < array.length; i++) {
+    //declare friends variable that equals array[i].friends
+ var friends = array[i].friends;
+ //declare isFriends variable that equals false
+ var isFriends = false;
+ //if array[i].name doesn't equal name, loop through friends
+ if (array[i].name !== name) {
+ for (let j = 0; j < friends.length; j++) {
+    //if friends[j] equals name
+    if (friends[j] === name) {
+        //make isFriends true
+        isFriends = true;
+    }
+ } //if isFriends is not true, push array[i].name into output
+ if (!isFriends) {
+    output.push(array[i].name)
+ }  
+ } //return output
+ } return output;
 
-}
+ }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
