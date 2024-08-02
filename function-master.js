@@ -194,9 +194,25 @@ for (let i = 0; i < array.length; i++) {
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+/* 
+I: function takes an object, key, and value
+O: Update key property on object, create key if it does not exist
+C:N/A
+E: N/A
+*/
 function updateObject(object, key, value) {
-
+    const output = {};
+    for (let keys in object) {
+        if (keys === key) {
+            output[keys] = value;
+        } else {
+            output[keys] = object[keys];
+        }
+    }
+    if (!output[key]) {
+        output[key] = value;
+    }
+    return output;
 }
 
 //////////////////////////////////////////////////////////////////////
