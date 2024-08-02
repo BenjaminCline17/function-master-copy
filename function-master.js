@@ -218,9 +218,18 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+/*
+I:Function takes in object and an array of strings
+O: remove any object properties listed in array
+C:N/A
+E:N/A
+*/
 function removeProperties(object, array) {
-
+ //for loop to iterate through array
+ for (let i = 0; i < array.length; i++) {
+    //delete object property listed in array
+    delete object[array[i]];
+ }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -228,7 +237,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    //return array.filter that creates a shallow copy of the array without the duplicates
+return array.filter((item, index) => array.indexOf(item) === index);
 }
 
 //////////////////////////////////////////////////////////////////////
