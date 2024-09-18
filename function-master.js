@@ -3,7 +3,14 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-    // code
+    //declare output as an empty array
+    var output = [];
+    //use for in loop to iterate through input object's values
+    for (let keys in object){
+        //push input object's values into the output array
+        output.push(object[keys]);
+    } //return output
+    return output;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +18,14 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+//declare output as an empty array
+var output = [];
+//use for in loop to iterate through input object
+for (let keys in object){
+    //push input object's keys into output
+    output.push(keys);
+} //return output array's values joined into a string separated by a space
+ return output.join(" ")
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +33,17 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    //declare output as an empty array
+    var output = [];
+    //use a for in loop to iterate through input object
+    for (let keys in object){
+        //use if statement to check if current object value is a string
+        if (typeof object[keys] === "string"){
+            //if value is a string, push it into the output array
+            output.push(object[keys]);
+        }
+    } //return output array's values joined into a string separated by a space
+    return output.join(" ")
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +51,14 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    //use if statement to check if collection is an array
+    if (Array.isArray(collection) === true){
+        //return "array" if true
+        return "array"
+        //else return "object"
+    } else {
+        return "object";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +66,8 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    //return the result of setting the first character of string to uppercase and adding it to the rest of the string
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +75,16 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    //split the string into an array
+    let words = string.split(" ");
+
+    //use a for loop to iterate through the words array
+    for (let i = 0; i < words.length; i++){
+        //set the current index of words equal to the result of setting the first character to uppercase and adding it to the rest of the string
+       words[i] = words[i][0].toUpperCase() + words[i].slice(1); 
+    }
+    //return words joined back into a string separated by a space
+    return words.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -51,7 +92,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+//return "Welcome " + object.name + " !" while setting up the first character in the name property to be capitalized
+return "Welcome " + object.name.charAt(0).toUpperCase() + object.name.slice(1) + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +101,8 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+//return object.name with the first letter capitalized + " is a " + object.species with the first letter capitalize
+return object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a " + object.species.charAt(0).toUpperCase() + object.species.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +110,14 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+//use if statement to see if input object has a noises array with a length greater than 0
+if (Array.isArray(object["noises"]) && object["noises"].length > 0){
+    //if true, join the noises array into a string separated by a space
+return object["noises"].join(" ");
+} //else return "there are no noises"
+ else {
+    return "there are no noises";
+ }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,7 +125,14 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+//use an if statement to see if input word is included in input string
+if (string.includes(word)){
+    //if string includes word, return true
+    return true;
+} else {
+    //otherwise return false
+    return false;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -83,7 +140,10 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+  //add input name to the end of the input object's friends array  
+object["friends"].push(name);
+//return object
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,7 +151,14 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+//use if statement to see if name exists in object
+if(object["friends"] && object["friends"].includes(name)){
+    //if name exists, return true
+    return true;
+} else {
+    //if name doesn't exist, return false
+    return false;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
