@@ -166,7 +166,28 @@ if(object["friends"] && object["friends"].includes(name)){
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    //declare output as an empty array
+ var output = [];
+ //use a for loop to iterate through the array
+ for (let i = 0; i < array.length; i++){
+    //declare friends to the friends array at the current index of the input array
+    var friends = array[i].friends;
+    //declare isFriend as false
+    var isFriend = false;
+    //use if statement to check if the current name in the input array is not the same as the input name
+    if (array[i].name !== name) {
+        //if so, use a for loop to iterate through the friends array
+        for (let e = 0; e < friends.length; e++){
+            //if the current index of the friends array equals the input name
+            if (friends[e] === name) {
+                //set isFriend to true
+                isFriend = true;
+            }
+        } //once the loop is done, if isFriend is a falsy value, push the current name in the input array into output
+        if (!isFriend) output.push(array[i].name);
+    }
+ } //return output once it has collected all the values
+ return output;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -174,7 +195,10 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+   //Set input key property on input object to input value
+object[key] = value;
+//return object
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -182,7 +206,11 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+//use for loop to iterate through the input array
+for (let i = 0; i < array.length; i++) {
+    //delete all object properties that match the current index of the input array
+    delete object[array[i]];
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -190,7 +218,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    //use the array filter method to create a new array without the duplicates
+return array.filter((value, index) => array.indexOf(value) === index);
 }
 
 //////////////////////////////////////////////////////////////////////
